@@ -1,4 +1,7 @@
 from vehiculo import Vehiculo # Importa la clase Vehiculo desde el archivo local vehiculo.py
+from auto import Auto
+from moto import Moto
+from camion import Camion
 
 vehiculo1 = Vehiculo("AB1234", 2018) # Instancia el primer objeto Vehiculo pasándole su patente y año
 vehiculo2 = Vehiculo("CD5678", 2020) # Instancia el segundo objeto Vehiculo pasándole su patente y año
