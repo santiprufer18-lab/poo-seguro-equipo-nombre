@@ -1,15 +1,27 @@
+from vehiculo import Vehiculo # Importa la clase base Vehiculo desde vehiculo.py
 from auto import Auto # Importa la clase Auto desde el archivo local auto.py
 from moto import Moto # Importa la clase Moto desde el archivo local moto.py
 from camion import Camion # Importa la clase Camion desde el archivo local camion.py
 
-vehiculo1 = Auto("AB1234", 2018, 200) # Instancia un objeto Auto pasándole su patente y año
-vehiculo2 = Moto("CD5678", 2020) # Instancia un objeto Moto pasándole su patente y año
-vehiculo3 = Camion("EF9012", 2023, 5000) # Instancia un objeto Camion pasándole su patente y año
+# Instanciación de objetos
+vehiculo_base = Vehiculo("BASE01", 2015) # Instancia un objeto Vehiculo base
+auto = Auto("AB1234", 2018, 200) # Instancia un objeto Auto con capacidad de maletero
+moto = Moto("CD5678", 2020) # Instancia un objeto Moto
+camion = Camion("EF9012", 2023, 5000) # Instancia un objeto Camion con capacidad de carga
 
-print(vehiculo1.ingresar()) # Ejecuta ingresar() del primer vehículo y muestra el texto retornado en consola
-print(vehiculo2.ingresar()) # Ejecuta ingresar() del segundo vehículo y muestra el texto retornado en consola
-print(vehiculo3.ingresar()) # Ejecuta ingresar() del tercer vehículo y muestra el texto retornado en consola
+# Pruebas de ingreso al taller
+print(auto.ingresar()) # Ejecuta ingresar() del auto
+print(moto.ingresar()) # Ejecuta ingresar() de la moto
+print(camion.ingresar()) # Ejecuta ingresar() del camión
 
-print(f"Tarifa por hora del primer vehículo: ${vehiculo1.tarifa_hora()}") # Concatena e imprime la tarifa retornada por el primer vehículo
-print(f"Tarifa por hora del segundo vehículo: ${vehiculo2.tarifa_hora()}") # Concatena e imprime la tarifa retornada por el segundo vehículo
-print(f"Tarifa por hora del tercer vehículo: ${vehiculo3.tarifa_hora()}") # Concatena e imprime la tarifa retornada por el tercer vehículo
+# Pruebas de encapsulamiento y asignación de patente
+pruebaEnc = camion.patente # Obtiene la patente del camión
+camion.set_patente("EF9012") # Asigna una nueva patente válida usando el método setter
+print(f"Patente obtenida: {pruebaEnc}") # Imprime la patente obtenida
+
+
+# Pruebas de tarifa_hora()
+print(f"Tarifa por hora Vehiculo Base: ${vehiculo_base.tarifa_hora()}") # Tarifa base (5000)
+print(f"Tarifa por hora Auto: ${auto.tarifa_hora()}") # Tarifa sobreescrita Auto (25000)
+print(f"Tarifa por hora Moto: ${moto.tarifa_hora()}") # Tarifa sobreescrita Moto (15000)
+print(f"Tarifa por hora Camión: ${camion.tarifa_hora()}") # Tarifa sobreescrita Camion (40000)
